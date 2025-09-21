@@ -1,10 +1,11 @@
 // Contact Information
 export const CONTACT_INFO = {
-  phone: '+234 XXX XXX XXXX',
-  email: 'info@solarreckx.com',
-  whatsapp: 'https://wa.me/234',
+  phone: '+2349138502947',
+  phone2: '+2347081741999',
+  email: 'Drmcxlihemeje@gmail.com',
+  whatsapp: 'https://wa.me/2349138502947',
   address: 'Lagos, Nigeria'
-};
+}
 
 // Services
 export const SERVICES = [
@@ -32,7 +33,7 @@ export const SERVICES = [
     description: 'Regular maintenance and system upgrades',
     icon: 'Settings'
   }
-];
+]
 
 // Navigation Links
 export const NAVIGATION = [
@@ -41,7 +42,7 @@ export const NAVIGATION = [
   { name: 'About', href: '/about' },
   { name: 'Projects', href: '/projects' },
   { name: 'Contact', href: '/contact' }
-];
+]
 
 // Animation Variants
 export const ANIMATION_VARIANTS = {
@@ -61,4 +62,4 @@ export const ANIMATION_VARIANTS = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.1 } }
   }
-};
+}

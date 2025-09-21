@@ -31,7 +31,7 @@ const About = () => {
               Pioneering Nigeria's Energy Independence
             </h1>
             <p className="text-xl text-green-100 max-w-3xl mx-auto">
-              Solar Reckx is leading the renewable energy revolution in Nigeria, empowering homes and businesses 
+              Solar Drmcxl is leading the renewable energy revolution in Nigeria, empowering homes and businesses
               with cutting-edge solar technology and unmatched technical expertise since 2019.
             </p>
           </motion.div>
@@ -52,20 +52,20 @@ const About = () => {
                 Our Journey to Excellence
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2019 by a team of electrical engineers passionate about sustainable energy, 
-                Solar Reckx emerged from a vision to make clean, reliable power accessible to every Nigerian. 
-                What started as a small technical service company has grown into one of Nigeria's most 
+                Founded in 2019 by a team of electrical engineers passionate about sustainable energy,
+                Solar Drmcxl emerged from a vision to make clean, reliable power accessible to every Nigerian.
+                What started as a small technical service company has grown into one of Nigeria's most
                 trusted renewable energy providers, serving over 500 satisfied customers.
               </p>
               <p className="text-lg text-gray-600 mb-6">
-                Our certified engineering team combines international training with deep local knowledge 
-                of Nigeria's unique power challenges. We've successfully completed installations ranging 
-                from 1kW residential systems to 50kW commercial projects, always delivering on our promise 
+                Our certified engineering team combines international training with deep local knowledge
+                of Nigeria's unique power challenges. We've successfully completed installations ranging
+                from 1kW residential systems to 50kW commercial projects, always delivering on our promise
                 of quality, reliability, and exceptional after-sales support.
               </p>
               <p className="text-lg text-gray-600">
-                Today, Solar Reckx stands as a testament to Nigerian innovation and excellence. 
-                Our commitment to using only premium components, providing transparent pricing, 
+                Today, Solar Drmcxl stands as a testament to Nigerian innovation and excellence.
+                Our commitment to using only premium components, providing transparent pricing,
                 and maintaining the highest safety standards has earned us recognition as an industry leader.
               </p>
             </motion.div>
@@ -80,7 +80,7 @@ const About = () => {
               <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl p-8">
                 <ImagePlaceholder
                   src={IMAGES.about.team}
-                  alt="Solar Reckx team of certified engineers and technicians"
+                  alt="Solar Drmcxl team of certified engineers and technicians"
                   fallbackText="Our Expert Team"
                   aspectRatio="aspect-square"
                   className="rounded-xl shadow-lg"
@@ -105,7 +105,7 @@ const About = () => {
               Measurable Impact Across Nigeria
             </h2>
             <p className="text-xl text-gray-600">
-              Our track record of excellence speaks through the lives we've transformed 
+              Our track record of excellence speaks through the lives we've transformed
               and the sustainable energy solutions we've delivered nationwide.
             </p>
           </motion.div>
@@ -145,35 +145,35 @@ const About = () => {
               Our Mission & Vision
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              "To democratize access to clean, reliable energy across Nigeria by delivering world-class 
-              solar solutions that reduce costs, increase energy security, and contribute to a sustainable future 
+              "To democratize access to clean, reliable energy across Nigeria by delivering world-class
+              solar solutions that reduce costs, increase energy security, and contribute to a sustainable future
               for generations to come."
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Uncompromising Quality</h3>
                 <p className="text-gray-600">
-                  We source only Tier-1 solar panels and premium components, 
+                  We source only Tier-1 solar panels and premium components,
                   backed by comprehensive warranties and rigorous testing standards.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="text-4xl mb-4">🤝</div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Proven Reliability</h3>
                 <p className="text-gray-600">
-                  Our 98% customer retention rate and 24/7 support network 
+                  Our 98% customer retention rate and 24/7 support network
                   ensure your investment is protected for decades to come.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="text-4xl mb-4">💡</div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Continuous Innovation</h3>
                 <p className="text-gray-600">
-                  We integrate the latest smart monitoring technology and 
+                  We integrate the latest smart monitoring technology and
                   energy management systems to maximize your solar investment.
                 </p>
               </div>

@@ -28,15 +28,21 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      details: '+234 XXX XXX XXXX',
-      action: 'tel:+234'
+      title: 'Primary Phone',
+      details: '+2349138502947',
+      action: 'tel:+2349138502947'
+    },
+    {
+      icon: Phone,
+      title: 'Secondary Phone',
+      details: '+2347081741999',
+      action: 'tel:+2347081741999'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'info@solarreckx.com',
-      action: 'mailto:info@solarreckx.com'
+      details: 'Drmcxlihemeje@gmail.com',
+      action: 'mailto:Drmcxlihemeje@gmail.com'
     },
     {
       icon: MapPin,
@@ -47,8 +53,8 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      details: 'Chat with us instantly',
-      action: 'https://wa.me/234'
+      details: 'Chat with Drmcxl instantly',
+      action: 'https://wa.me/2349138502947'
     }
   ];
 
@@ -83,8 +89,8 @@ const Contact = () => {
               Start Your Energy Transformation
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Take the first step towards energy independence. Our certified engineers are ready 
-              to provide personalized solutions, transparent pricing, and expert guidance for your 
+              Take the first step towards energy independence. Our certified engineers are ready
+              to provide personalized solutions, transparent pricing, and expert guidance for your
               solar and inverter project.
             </p>
           </motion.div>
@@ -105,7 +111,7 @@ const Contact = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Get Your Free Energy Assessment
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -122,7 +128,7 @@ const Contact = () => {
                       placeholder="Your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number *
@@ -138,7 +144,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
@@ -152,7 +158,7 @@ const Contact = () => {
                     placeholder="your.email@example.com"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Service Type *
@@ -172,7 +178,7 @@ const Contact = () => {
                     ))}
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Message *
@@ -187,7 +193,7 @@ const Contact = () => {
                     placeholder="Tell us about your project or requirements..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full btn-primary flex items-center justify-center"
@@ -208,7 +214,7 @@ const Contact = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Get in Touch
               </h2>
-              
+
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={info.title} className="flex items-start space-x-4">
@@ -237,19 +243,19 @@ const Contact = () => {
               {/* Quick Contact Buttons */}
               <div className="mt-8 space-y-4">
                 <a
-                  href="https://wa.me/234"
+                  href="https://wa.me/2349138502947"
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  WhatsApp Us Now
+                  WhatsApp Drmcxl Now
                 </a>
-                
+
                 <a
-                  href="tel:+234"
+                  href="tel:+2349138502947"
                   className="w-full border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Directly
+                  Call Drmcxl Directly
                 </a>
               </div>
 

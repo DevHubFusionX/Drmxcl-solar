@@ -35,13 +35,47 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Why Solar Reckx Stands Apart
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our commitment to excellence, combined with cutting-edge technology and personalized service, 
-            makes us Nigeria's trusted partner for sustainable energy solutions.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-6"
+          >
+            <div className="inline-flex items-center space-x-3 rounded-full px-6 py-3 mb-4" style={{ backgroundColor: 'var(--green-100)', border: '1px solid var(--green-200)' }}>
+              <div className="flex space-x-1">
+                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green)' }}></div>
+                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green-light)', animationDelay: '0.1s' }}></div>
+                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green-dark)', animationDelay: '0.2s' }}></div>
+              </div>
+              <span className="font-bold tracking-wider uppercase" style={{ color: 'var(--energy-green-dark)' }}>Excellence Redefined</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-black leading-tight">
+              <span style={{ color: 'var(--gray-800)' }}>WHY </span>
+              <span className="text-gradient-primary">
+                SOLAR Drmcxl
+              </span>
+              <br />
+              <span className="text-gradient-accent">
+                STANDS APART
+              </span>
+            </h2>
+
+            <div className="flex justify-center space-x-2">
+              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-primary)' }}></div>
+              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-text-accent)' }}></div>
+              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-primary)' }}></div>
+            </div>
+
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed" style={{ color: 'var(--gray-600)', fontFamily: 'var(--font-primary)' }}>
+              Our <span className="font-bold" style={{ color: 'var(--energy-green)' }}>unwavering commitment to engineering excellence</span>,
+              combined with <span className="font-bold" style={{ color: 'var(--energy-green-dark)' }}>cutting-edge photovoltaic innovations</span> and
+              <span className="font-bold" style={{ color: 'var(--gray-800)' }}>bespoke energy consultancy</span>, positions us as
+              <span className="text-gradient-primary font-black">Nigeria's definitive authority</span>
+              in sustainable energy transformation.
+            </p>
+          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

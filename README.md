@@ -1,6 +1,6 @@
-# Solar Reckx Website
+# Solar Drmcxl Website
 
-A modern, responsive website for Solar Reckx - a solar and inverter solutions company. Built with React, Vite, Tailwind CSS, Framer Motion, and Lucide React icons.
+A modern, responsive website for Solar Drmcxl - a solar and inverter solutions company. Built with React, Vite, Tailwind CSS, Framer Motion, and Lucide React icons.
 
 ## Features
 
@@ -31,16 +31,19 @@ A modern, responsive website for Solar Reckx - a solar and inverter solutions co
 ## Installation
 
 1. Navigate to the project directory:
+
    ```bash
-   cd "c:\Users\fanya\Documents\New folder (2)\Solar Reckx\drmxcl"
+   cd "c:\Users\fanya\Documents\New folder (2)\Solar Drmcxl\drmxcl"
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -84,33 +87,41 @@ src/
 ## Customization
 
 ### Adding Images
+
 **IMPORTANT**: The website is designed to use actual photos of solar installations, inverters, and engineers working. Currently, it shows placeholder images.
 
 To add real images:
+
 1. Read the `IMAGE_GUIDE.md` file for detailed requirements
 2. Add images to the appropriate folders in `src/assets/images/`
 3. Images will automatically replace placeholders when added
 
 **Required Image Folders**:
+
 - `src/assets/images/hero/` - Hero section images
 - `src/assets/images/services/` - Service-related photos
 - `src/assets/images/projects/` - Project portfolio photos
 - `src/assets/images/about/` - Team and company photos
 
 ### Contact Information
+
 Update contact details in `src/utils/constants.js`:
+
 - Phone number
 - Email address
 - WhatsApp link
 - Business address
 
 ### Colors and Styling
+
 The website uses a green and blue color scheme. You can customize colors in `src/index.css`:
+
 - Primary green: `#27ae60`
 - Secondary yellow: `#f1c40f`
 - Blue gradient: `#1e3a8a` to `#3b82f6`
 
 ### Content
+
 - Update company information in the About page
 - Add real project images and details in the Projects page
 - Customize service descriptions in the Services page
@@ -119,16 +130,19 @@ The website uses a green and blue color scheme. You can customize colors in `src
 ## Deployment
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Deploy to Netlify
+
 1. Build the project: `npm run build`
 2. Upload the `dist` folder to Netlify
 3. Configure redirects for React Router (create `_redirects` file in `public` folder with `/* /index.html 200`)
 
 ### Deploy to Vercel
+
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run: `vercel`
 3. Follow the prompts
@@ -149,4 +163,4 @@ For support or questions about this website, contact the development team.
 
 ## License
 
-This project is proprietary software for Solar Reckx.
+This project is proprietary software for Solar Drmcxl.

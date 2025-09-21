@@ -24,7 +24,7 @@ const LoadingScreen = ({ onComplete }) => {
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-yellow-300 rounded-full"
-            initial={{ 
+            initial={{
               x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
               y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
               opacity: 0
@@ -44,7 +44,7 @@ const LoadingScreen = ({ onComplete }) => {
 
       <div className="text-center relative z-10">
         {/* Solar Panel Grid Animation */}
-        <motion.div 
+        <motion.div
           className="mb-8 relative"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -57,7 +57,7 @@ const LoadingScreen = ({ onComplete }) => {
                 className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-sm"
                 initial={{ opacity: 0, rotateY: -90 }}
                 animate={{ opacity: 1, rotateY: 0 }}
-                transition={{ 
+                transition={{
                   delay: i * 0.1,
                   duration: 0.6,
                   ease: "easeOut"
@@ -65,7 +65,7 @@ const LoadingScreen = ({ onComplete }) => {
               />
             ))}
           </div>
-          
+
           {/* Energy Flow Animation */}
           <motion.div className="flex items-center justify-center space-x-4">
             <motion.div
@@ -74,13 +74,13 @@ const LoadingScreen = ({ onComplete }) => {
             >
               <Sun className="h-8 w-8 text-yellow-400" />
             </motion.div>
-            
+
             <motion.div className="flex space-x-1">
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="w-2 h-0.5 bg-green-400 rounded-full"
-                  animate={{ 
+                  animate={{
                     x: [0, 20, 0],
                     opacity: [0, 1, 0]
                   }}
@@ -92,20 +92,20 @@ const LoadingScreen = ({ onComplete }) => {
                 />
               ))}
             </motion.div>
-            
+
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
               <Zap className="h-8 w-8 text-green-400" />
             </motion.div>
-            
+
             <motion.div className="flex space-x-1">
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="w-2 h-0.5 bg-blue-400 rounded-full"
-                  animate={{ 
+                  animate={{
                     x: [0, 20, 0],
                     opacity: [0, 1, 0]
                   }}
@@ -117,7 +117,7 @@ const LoadingScreen = ({ onComplete }) => {
                 />
               ))}
             </motion.div>
-            
+
             <motion.div className="relative">
               <Battery className="h-8 w-8 text-blue-400" />
               <motion.div
@@ -138,9 +138,9 @@ const LoadingScreen = ({ onComplete }) => {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent mb-2">
-            Solar Reckx
+            Solar Drmcxl
           </h1>
-          
+
           <motion.p
             className="text-slate-300 text-lg font-medium"
             initial={{ opacity: 0, y: 10 }}
@@ -152,7 +152,7 @@ const LoadingScreen = ({ onComplete }) => {
         </motion.div>
 
         {/* Progress Indicator */}
-        <motion.div 
+        <motion.div
           className="mt-8 w-64 mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -166,8 +166,8 @@ const LoadingScreen = ({ onComplete }) => {
               transition={{ duration: 2, ease: "easeInOut" }}
             />
           </div>
-          
-          <motion.p 
+
+          <motion.p
             className="text-slate-400 text-sm mt-2 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

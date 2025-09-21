@@ -22,7 +22,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <Sun className="h-8 w-8 text-green-600" />
-            <span className="text-2xl font-bold text-gray-800">Solar Reckx</span>
+            <span className="text-2xl font-bold text-gray-800">Solar Drmcxl</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -31,9 +31,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-gray-700 hover:text-green-600 transition-colors duration-300 ${
-                  location.pathname === item.href ? 'text-green-600 font-semibold' : ''
-                }`}
+                className={`text-gray-700 hover:text-green-600 transition-colors duration-300 ${location.pathname === item.href ? 'text-green-600 font-semibold' : ''
+                  }`}
               >
                 {item.name}
               </Link>
@@ -43,7 +42,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:+234"
+              href="tel:+2349138502947"
               className="flex items-center space-x-2 text-green-600 hover:text-green-700"
             >
               <Phone className="h-4 w-4" />
@@ -84,30 +83,29 @@ const Header = () => {
                 <div className="flex justify-between items-center mb-8">
                   <div className="flex items-center space-x-2">
                     <Sun className="h-6 w-6 text-green-600" />
-                    <span className="text-xl font-bold text-gray-800">Solar Reckx</span>
+                    <span className="text-xl font-bold text-gray-800">Solar Drmcxl</span>
                   </div>
                   <button onClick={() => setIsOpen(false)}>
                     <X className="h-6 w-6 text-gray-600" />
                   </button>
                 </div>
-                
+
                 <nav className="space-y-6">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block text-lg font-medium transition-colors duration-300 ${
-                        location.pathname === item.href 
-                          ? 'text-green-600' 
-                          : 'text-gray-700 hover:text-green-600'
-                      }`}
+                      className={`block text-lg font-medium transition-colors duration-300 ${location.pathname === item.href
+                        ? 'text-green-600'
+                        : 'text-gray-700 hover:text-green-600'
+                        }`}
                     >
                       {item.name}
                     </Link>
                   ))}
                 </nav>
-                
+
                 <div className="mt-8 space-y-4">
                   <a
                     href="tel:+234"
