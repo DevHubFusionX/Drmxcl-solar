@@ -20,9 +20,13 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can integrate with a backend service or email service
+    
+    // Create WhatsApp message
+    const message = `Hello Solar Drmcxl,\n\nI'm interested in your services.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage: ${formData.message}\n\nPlease get back to me. Thank you!`;
+    
+    // Open WhatsApp with prefilled message
+    const whatsappUrl = `https://wa.me/2349138502947?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const contactInfo = [
