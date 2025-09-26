@@ -108,7 +108,7 @@ const Header = () => {
 
                 <div className="mt-8 space-y-4">
                   <a
-                    href="tel:+234"
+                    href="tel:+2349138502947"
                     className="flex items-center space-x-3 text-gray-600 hover:text-green-600"
                   >
                     <Phone className="h-5 w-5" />
