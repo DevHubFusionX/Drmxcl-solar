@@ -23,7 +23,7 @@ const ContactCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/234"
+              href="https://wa.me/2349138502947"
               className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
@@ -31,7 +31,7 @@ const ContactCTA = () => {
             </a>
             
             <a
-              href="tel:+234"
+              href="tel:+2349138502947"
               className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center"
             >
               <Phone className="mr-2 h-5 w-5" />
