@@ -154,8 +154,13 @@ const Services = () => {
                     </div>
 
                     <div className="pt-4">
-                      <button className={`flex items-center space-x-4 px-8 py-4 rounded-full font-black text-white transition-all active:scale-95 shadow-xl ${service.theme === 'green' ? 'bg-green-600 shadow-green-600/20 hover:bg-green-700' : 'bg-gray-900 shadow-gray-900/20 hover:bg-black'
-                        }`}>
+                      <button
+                        onClick={() => {
+                          const message = encodeURIComponent(`Hello Solar Dremcxl, I am interested in your "${service.title}" service. Please provide more details on how to get started.`);
+                          window.open(`https://wa.me/2349138502947?text=${message}`, '_blank');
+                        }}
+                        className={`flex items-center space-x-4 px-8 py-4 rounded-full font-black text-white transition-all active:scale-95 shadow-xl ${service.theme === 'green' ? 'bg-green-600 shadow-green-600/20 hover:bg-green-700' : 'bg-gray-900 shadow-gray-900/20 hover:bg-black'
+                          }`}>
                         <span>REQUEST SERVICE</span>
                         <ArrowRight className="h-5 w-5" />
                       </button>
