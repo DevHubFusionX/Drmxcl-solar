@@ -1,112 +1,79 @@
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Zap, Home, Building } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Zap, Home, Building, ArrowRight, RefreshCw, Calendar } from 'lucide-react';
 import ImagePlaceholder from '../components/ui/ImagePlaceholder';
+import ProjectDetailsModal from '../components/ui/ProjectDetailsModal';
 import { IMAGES, IMAGE_DESCRIPTIONS } from '../utils/images';
+import '../styles/theme.css';
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const projects = [
     {
       id: 1,
-      title: 'Premium Residential Solar System - Lekki Phase 1',
+      title: 'PREMIUM RESIDENTIAL LEKKI',
       type: 'Residential',
       location: 'Lekki Phase 1, Lagos',
-      date: 'December 2024',
-      capacity: '5kW Hybrid Solar System',
-      description: 'Luxury 4-bedroom duplex transformed with premium off-grid solar solution. Client achieved 95% reduction in NEPA dependency and ₦180,000 monthly savings on electricity bills.',
+      date: 'Dec 2024',
+      capacity: '5kW Hybrid System',
+      description: 'Luxury 4-bedroom duplex transformed with premium off-grid solar solution. Client achieved 95% reduction in NEPA dependency and significant monthly savings.',
       image: IMAGES.projects.residential1,
       imageAlt: IMAGE_DESCRIPTIONS.projects.residential1,
-      features: ['8 x 320W Monocrystalline Panels', '5kW MPPT Hybrid Inverter', '10kWh Lithium-Ion Battery Bank', 'Smart Home Energy Management System']
+      features: ['MPPT Hybrid Inverter', '10kWh Lithium Bank', 'Smart Management']
     },
     {
       id: 2,
-      title: 'Corporate Headquarters Solar Installation - Victoria Island',
+      title: 'CORPORATE HQ VICTORIA ISLAND',
       type: 'Commercial',
       location: 'Victoria Island, Lagos',
-      date: 'November 2024',
-      capacity: '15kW Grid-Tie Solar System',
-      description: 'Modern office complex serving 150+ employees now operates with 70% solar power. Advanced load management system ensures seamless power transition and ₦450,000 monthly cost savings.',
+      date: 'Nov 2024',
+      capacity: '15kW Grid-Tie System',
+      description: 'Modern office complex serving 150+ employees now operates with 70% solar power. Advanced load management ensures seamless power transition.',
       image: IMAGES.projects.commercial1,
       imageAlt: IMAGE_DESCRIPTIONS.projects.commercial1,
-      features: ['24 x 320W Tier-1 Solar Panels', '15kW Three-Phase Grid-Tie Inverter', '20kWh Emergency Battery Backup', 'Cloud-Based Monitoring & Analytics']
+      features: ['Tier-1 Solar Panels', 'Cloud Analytics', 'Backup Storage']
     },
     {
       id: 3,
-      title: 'Emergency Inverter Restoration & System Upgrade - Ikeja GRA',
+      title: 'EMERGENCY INVERTER REPAIR',
       type: 'Repair',
       location: 'Ikeja GRA, Lagos',
-      date: 'November 2024',
-      capacity: '3kW to 5kW System Upgrade',
-      description: 'Critical inverter failure resolved within 4 hours of emergency call. Complete system diagnostics revealed opportunity for capacity upgrade, extending backup time from 6 to 12 hours.',
+      date: 'Nov 2024',
+      capacity: '5kW System Upgrade',
+      description: 'Critical inverter failure resolved within 4 hours. Complete system diagnostics revealed opportunity for capacity upgrade and efficiency gains.',
       image: IMAGES.projects.repair1,
       imageAlt: IMAGE_DESCRIPTIONS.projects.repair1,
-      features: ['Advanced Circuit Board Repair', 'Capacity Upgrade to 5kW', 'New 200Ah Lithium Battery Bank', 'Enhanced Safety Protection Systems']
+      features: ['Circuit Board Repair', 'Lithium Upgrade', 'Safety Protection']
     },
     {
       id: 4,
-      title: 'Solar Installation - Abuja Residence',
+      title: 'SUBURBAN SOLAR GWARINPA',
       type: 'Residential',
       location: 'Gwarinpa, Abuja',
-      date: 'October 2024',
-      capacity: '7kW Solar System',
-      description: 'Hybrid solar system installation for family home with automatic changeover and backup power.',
+      date: 'Oct 2024',
+      capacity: '7kW Hybrid System',
+      description: 'Full-home backup with automatic changeover and smart load management for a growing family in the heart of Abuja.',
       image: IMAGES.projects.residential2,
       imageAlt: IMAGE_DESCRIPTIONS.projects.residential2,
-      features: ['12 x 320W Solar Panels', '7kW Hybrid Inverter', '15kWh Battery Bank', 'Automatic Changeover']
-    },
-    {
-      id: 5,
-      title: 'Small Business Solar Setup - Port Harcourt',
-      type: 'Commercial',
-      location: 'Port Harcourt, Rivers',
-      date: 'September 2024',
-      capacity: '10kW Solar System',
-      description: 'Solar power solution for small manufacturing business to reduce electricity costs and ensure reliable power.',
-      image: IMAGES.projects.commercial2,
-      imageAlt: IMAGE_DESCRIPTIONS.projects.commercial2,
-      features: ['18 x 320W Solar Panels', '10kW Three-Phase Inverter', '25kWh Battery Storage', 'Load Management System']
-    },
-    {
-      id: 6,
-      title: 'Battery Replacement Project - Surulere',
-      type: 'Maintenance',
-      location: 'Surulere, Lagos',
-      date: 'September 2024',
-      capacity: 'Battery Upgrade',
-      description: 'Replaced old lead-acid batteries with new lithium-ion battery bank for improved performance and longevity.',
-      image: IMAGES.projects.maintenance1,
-      imageAlt: IMAGE_DESCRIPTIONS.projects.maintenance1,
-      features: ['Lithium Battery Installation', 'System Reconfiguration', 'Performance Testing', 'Warranty Coverage']
+      features: ['12x 320W Panels', '15kWh Storage', 'Auto Changeover']
     }
   ];
 
   const getTypeIcon = (type) => {
     switch (type) {
-      case 'Residential':
-        return Home;
-      case 'Commercial':
-        return Building;
-      case 'Repair':
-        return Zap;
-      case 'Maintenance':
-        return Zap;
-      default:
-        return Zap;
+      case 'Residential': return Home;
+      case 'Commercial': return Building;
+      case 'Repair': return Zap;
+      case 'Maintenance': return RefreshCw;
+      default: return Zap;
     }
   };
 
-  const getTypeColor = (type) => {
-    switch (type) {
-      case 'Residential':
-        return 'bg-blue-100 text-blue-800';
-      case 'Commercial':
-        return 'bg-green-100 text-green-800';
-      case 'Repair':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'Maintenance':
-        return 'bg-purple-100 text-purple-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
   };
 
   return (
@@ -115,137 +82,186 @@ const Projects = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
+      className="bg-white"
     >
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white section-padding">
-        <div className="container">
+      {/* Editorial Hero - Massive Typography */}
+      <section className="bg-gray-950 text-white pt-48 pb-32 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-6xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Proven Excellence in Action
+            <div className="inline-flex items-center space-x-3 mb-10">
+              <span className="w-12 h-[2px] bg-green-500" />
+              <span className="text-sm font-black uppercase tracking-[0.4em] text-green-500">Case Studies</span>
+            </div>
+
+            <h1 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter mb-12">
+              POWERING <br />
+              <span className="text-gray-500">PROGRESS.</span>
             </h1>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto">
-              Discover our portfolio of transformative energy solutions across Nigeria.
-              From residential rooftops to commercial complexes, witness how we've delivered
-              measurable results and lasting value to our clients.
+
+            <p className="text-xl md:text-3xl text-gray-400 max-w-3xl leading-relaxed font-medium">
+              We engineer bespoke energy solutions that drive real-world impact
+              for Nigeria's most ambitious homeowners and enterprises.
             </p>
           </motion.div>
         </div>
+
+        {/* Background Decorative Text */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 opacity-[0.02] select-none pointer-events-none -rotate-90 origin-right">
+          <span className="text-[30rem] font-black leading-none uppercase tracking-tighter">IMPACT</span>
+        </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => {
-              const TypeIcon = getTypeIcon(project.type);
+      {/* Editorial Journal Feed */}
+      <section className="py-32">
+        <div className="container mx-auto px-4">
+          <div className="space-y-48">
+            <AnimatePresence mode='popLayout'>
+              {projects.map((project, index) => {
+                const Icon = getTypeIcon(project.type);
+                const isEven = index % 2 === 0;
 
-              return (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                >
-                  {/* Project Image */}
-                  <div className="relative">
-                    <ImagePlaceholder
-                      src={project.image}
-                      alt={project.imageAlt}
-                      fallbackText={project.title}
-                      aspectRatio="aspect-[4/3]"
-                      className="rounded-t-xl"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(project.type)} backdrop-blur-sm`}>
-                        <TypeIcon className="h-4 w-4 mr-1" />
-                        {project.type}
-                      </span>
-                    </div>
-                  </div>
+                return (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}
+                  >
+                    {/* Project Image - Massively Sized */}
+                    <div className={`lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <div className="group relative rounded-[64px] overflow-hidden shadow-2xl">
+                        <ImagePlaceholder
+                          src={project.image}
+                          alt={project.imageAlt}
+                          className="w-full aspect-video object-cover transition-transform duration-[2s] group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gray-950/10 group-hover:bg-gray-950/0 transition-all duration-700" />
 
-                  {/* Project Details */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      {project.title}
-                    </h3>
-
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center text-gray-600">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        <span className="text-sm">{project.location}</span>
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        <span className="text-sm">{project.date}</span>
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <Zap className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-semibold">{project.capacity}</span>
+                        {/* Internal Label */}
+                        <div className="absolute bottom-10 left-10">
+                          <div className="px-8 py-4 bg-white/95 backdrop-blur shadow-2xl rounded-3xl flex items-center space-x-4 border border-gray-100">
+                            <Icon className="h-5 w-5 text-green-600" />
+                            <span className="text-xs font-black uppercase tracking-[0.3em] text-gray-900">{project.type}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm">
-                      {project.description}
-                    </p>
+                    {/* Project Details */}
+                    <div className={`lg:col-span-5 space-y-10 ${isEven ? 'lg:order-2 lg:pl-12' : 'lg:order-1 lg:pr-12'}`}>
+                      <div className="space-y-6">
+                        <div className="flex items-center space-x-4 text-[10px] font-black uppercase tracking-[0.4em] text-green-600">
+                          <span>{project.location}</span>
+                          <span className="w-1.5 h-1.5 bg-gray-200 rounded-full" />
+                          <span>{project.date}</span>
+                        </div>
 
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-gray-800 text-sm">Key Features:</h4>
-                      <ul className="space-y-1">
-                        {project.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="text-xs text-gray-600 flex items-center">
-                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                        <h2 className="text-4xl md:text-6xl font-black text-gray-900 leading-[0.9] tracking-tighter uppercase whitespace-pre-line">
+                          {project.title}
+                        </h2>
+
+                        <p className="text-xl text-gray-500 font-medium leading-relaxed italic">
+                          "{project.description}"
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-6 pt-6 border-t border-gray-100">
+                        <div className="flex items-center space-x-4">
+                          <Zap className="h-6 w-6 text-green-500" />
+                          <div>
+                            <div className="text-[10px] font-black uppercase tracking-widest text-gray-400">Project Capacity</div>
+                            <div className="text-lg font-black text-gray-900">{project.capacity}</div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap gap-3">
+                          {project.features.map((feat, i) => (
+                            <span key={i} className="px-4 py-2 bg-gray-50 rounded-xl text-[10px] font-bold text-gray-500 uppercase tracking-widest border border-gray-100">
+                              {feat}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-4">
+                        <button
+                          onClick={() => openProjectModal(project)}
+                          className="flex items-center space-x-4 text-xs font-black text-gray-900 uppercase tracking-[0.4em] group"
+                        >
+                          <span>EXPLORE REQUISITES</span>
+                          <div className="w-10 h-10 rounded-full bg-gray-950 text-white flex items-center justify-center transition-transform group-hover:translate-x-2">
+                            <ArrowRight className="h-4 w-4" />
+                          </div>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container">
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <ProjectDetailsModal
+            project={selectedProject}
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Editorial CTA */}
+      <section className="py-48 bg-gray-950 text-white text-center relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="space-y-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Ready to Start Your Project?
+            <h2 className="text-5xl md:text-9xl font-black leading-[0.8] tracking-tighter uppercase mb-16">
+              YOUR PROJECT <br />
+              <span className="text-green-500">IS NEXT.</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join our growing list of satisfied customers. Contact us today to discuss
-              your solar and inverter needs.
+
+            <p className="text-xl md:text-2xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
+              We bring the same level of engineering precision to every single
+              installation, ensuring your switch to solar is seamless and permanent.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-10">
               <a
-                href="https://wa.me/234"
-                className="btn-primary"
+                href="https://wa.me/2349138502947"
+                className="px-16 py-6 rounded-full bg-green-600 text-white font-black text-xl hover:bg-green-500 transition-all shadow-2xl shadow-green-600/30 active:scale-95 group flex items-center space-x-4"
               >
-                Get Free Quote
+                <span>INITIATE PROJECT</span>
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+234"
-                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                href="tel:+2349138502947"
+                className="text-white font-black text-xl uppercase tracking-[0.3em] hover:text-green-500 transition-colors"
               >
-                Call for Consultation
+                CALL OUR TEAM
               </a>
             </div>
           </motion.div>
+        </div>
+
+        {/* Decorative Blur Background (Solid) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-[0.05]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500 rounded-full blur-[300px]" />
         </div>
       </section>
     </motion.div>
