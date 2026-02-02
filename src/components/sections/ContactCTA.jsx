@@ -1,52 +1,84 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MessageCircle, Phone, ArrowRight } from 'lucide-react';
+import { MessageCircle, Phone, ArrowRight, Zap } from 'lucide-react';
+import '../../styles/theme.css';
 
 const ContactCTA = () => {
   return (
-    <section className="gradient-bg text-white section-padding">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Start Your Energy Independence Journey Today
-          </h2>
-          <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who have reduced their electricity bills by up to 90%. 
-            Get your free energy assessment and discover how much you can save with solar power.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/2349138502947"
-              className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center"
-            >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              WhatsApp Us Now
-            </a>
-            
-            <a
-              href="tel:+2349138502947"
-              className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              Call Directly
-            </a>
-            
-            <Link
-              to="/contact"
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center"
-            >
-              Get Free Quote
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </motion.div>
+    <section className="py-24 bg-gray-900 relative overflow-hidden">
+      {/* Background Accents */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[70%] rounded-full bg-green-600/10 blur-[120px]" />
+        <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[70%] rounded-full bg-blue-600/10 blur-[120px]" />
+
+        {/* Large Decorative Text */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.02]">
+          <span className="text-[30rem] font-black uppercase tracking-tighter">Energy</span>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center space-y-8"
+          >
+            {/* Pulsing Zap Icon */}
+            <div className="w-20 h-20 rounded-[30px] bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-4">
+              <Zap className="h-10 w-10 text-green-400 animate-pulse" />
+            </div>
+
+            <h2 className="text-5xl md:text-7xl font-black text-white leading-[1.05] tracking-tight">
+              READY TO POWER <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">YOUR FUTURE?</span>
+            </h2>
+
+            <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
+              Join 500+ satisfied customers who have unlocked energy independence.
+              Get your <span className="text-white font-bold">free assessment</span> today and start saving.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 items-center pt-8">
+              <Link
+                to="/contact"
+                className="group relative px-12 py-5 rounded-full bg-green-600 text-white font-black text-lg hover:bg-green-500 transition-all shadow-2xl shadow-green-600/30 flex items-center space-x-3 active:scale-95"
+              >
+                <span>GET FREE ASSESSMENT</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <div className="flex items-center space-x-8">
+                <a
+                  href="https://wa.me/2349138502947"
+                  className="group flex flex-col items-center space-y-1 text-gray-400 hover:text-green-400 transition-colors"
+                >
+                  <MessageCircle className="h-6 w-6" />
+                  <span className="text-[10px] font-black uppercase tracking-widest pt-1">WHATSAPP</span>
+                </a>
+
+                <div className="w-[1px] h-8 bg-gray-800" />
+
+                <a
+                  href="tel:+2349138502947"
+                  className="group flex flex-col items-center space-y-1 text-gray-400 hover:text-blue-400 transition-colors"
+                >
+                  <Phone className="h-6 w-6" />
+                  <span className="text-[10px] font-black uppercase tracking-widest pt-1">CALL US</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Faint Trust Text */}
+            <div className="pt-16 flex items-center space-x-4 opacity-30">
+              <span className="w-8 h-[1px] bg-white" />
+              <span className="text-xs font-bold text-white uppercase tracking-[0.4em]">Nigeria's Definitive Authority</span>
+              <span className="w-8 h-[1px] bg-white" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

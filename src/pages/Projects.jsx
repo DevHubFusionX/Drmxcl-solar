@@ -129,8 +129,8 @@ const Projects = () => {
               Proven Excellence in Action
             </h1>
             <p className="text-xl text-green-100 max-w-3xl mx-auto">
-              Discover our portfolio of transformative energy solutions across Nigeria. 
-              From residential rooftops to commercial complexes, witness how we've delivered 
+              Discover our portfolio of transformative energy solutions across Nigeria.
+              From residential rooftops to commercial complexes, witness how we've delivered
               measurable results and lasting value to our clients.
             </p>
           </motion.div>
@@ -143,7 +143,7 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => {
               const TypeIcon = getTypeIcon(project.type);
-              
+
               return (
                 <motion.div
                   key={project.id}
@@ -175,7 +175,7 @@ const Projects = () => {
                     <h3 className="text-xl font-bold text-gray-800 mb-3">
                       {project.title}
                     </h3>
-                    
+
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-gray-600">
                         <MapPin className="h-4 w-4 mr-2" />
@@ -190,11 +190,11 @@ const Projects = () => {
                         <span className="text-sm font-semibold">{project.capacity}</span>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-600 mb-4 text-sm">
                       {project.description}
                     </p>
-                    
+
                     <div className="space-y-2">
                       <h4 className="font-semibold text-gray-800 text-sm">Key Features:</h4>
                       <ul className="space-y-1">
@@ -228,7 +228,7 @@ const Projects = () => {
               Ready to Start Your Project?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join our growing list of satisfied customers. Contact us today to discuss 
+              Join our growing list of satisfied customers. Contact us today to discuss
               your solar and inverter needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

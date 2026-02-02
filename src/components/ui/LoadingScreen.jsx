@@ -138,7 +138,7 @@ const LoadingScreen = ({ onComplete }) => {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 via-blue-400 to-yellow-400 bg-clip-text text-transparent mb-2">
-            Solar Drmcxl
+            Solar Dremcxl
           </h1>
 
           <motion.p

@@ -1,199 +1,121 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Phone, Zap, Shield, Award } from 'lucide-react';
-import ImagePlaceholder from '../ui/ImagePlaceholder';
-import { IMAGES, IMAGE_DESCRIPTIONS } from '../../utils/images';
+import { ArrowRight, Phone, Award, Shield, Zap } from 'lucide-react';
+import { HERO_BACKGROUNDS } from '../../utils/images';
 import '../../styles/theme.css';
 
 const Hero = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % HERO_BACKGROUNDS.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden px-4 pt-3 sm:px-6 lg:px-8" style={{ background: 'var(--gradient-hero)' }}>
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'var(--green-500)', opacity: 0.1 }}></div>
-        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'var(--green-400)', opacity: 0.15, animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full blur-3xl" style={{ background: 'linear-gradient(135deg, var(--green-500), var(--green-300))', opacity: 0.08 }}></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      {/* Background Slider */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentBg}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${HERO_BACKGROUNDS[currentBg]})` }}
+          />
+        </AnimatePresence>
+        {/* Dark/Gradient Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-[2]" />
       </div>
 
-      <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Content Section */}
-          <motion.div 
-            className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="p-4 sm:p-6 relative overflow-hidden"
           >
             {/* Premium Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center space-x-2 rounded-full px-4 sm:px-6 py-2 sm:py-3 glass"
-              style={{ backgroundColor: 'var(--green-100)', border: '1px solid var(--green-200)' }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="inline-flex items-center space-x-2 mb-6"
             >
-              <Award className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: 'var(--energy-green)' }} />
-              <span className="text-sm sm:text-base font-semibold tracking-wide" style={{ color: 'var(--energy-green-dark)' }}>Nigeria's Premier Solar Solutions</span>
+              <Award className="h-4 w-4 text-green-400" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-green-300">Nigeria's Premier Solar Solutions</span>
             </motion.div>
 
             {/* Main Headline */}
-            <motion.div className="space-y-6">
-              <motion.h1 
-                className="text-responsive-xl font-black leading-tight"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <motion.span
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="block text-gradient-primary"
-                >
-                  CLEAN ENERGY
-                </motion.span>
-                <motion.span
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="block"
-                  style={{ color: 'var(--gray-800)' }}
-                >
-                  FOR NIGERIA
-                </motion.span>
-              </motion.h1>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                className="h-2 w-32 rounded-full"
-                style={{ background: 'var(--gradient-primary)' }}
-              />
-            </motion.div>
-
-            {/* Sophisticated Description */}
-            <motion.p 
-              className="text-xl lg:text-2xl leading-relaxed max-w-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              style={{ color: 'var(--gray-600)', fontFamily: 'var(--font-primary)', letterSpacing: '0.01em' }}
+            <motion.h1
+              className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-white"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Transform your home or business with our 
-              <span className="font-bold" style={{ color: 'var(--energy-green)' }}> premium solar installations</span> and 
-              <span className="font-bold" style={{ color: 'var(--energy-green-dark)' }}> inverter solutions</span>. 
-              Experience reliable power while reducing costs by up to 
-              <span className="font-black" style={{ color: 'var(--energy-green)' }}>90%</span>.
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">CLEAN ENERGY</span>
+              <span className="block">FOR NIGERIA</span>
+            </motion.h1>
+
+            <motion.p
+              className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              Switch to <span className="text-green-400 font-bold">Nigeria's most reliable</span> solar and inverter solutions. Reduce your bills by up to <span className="text-green-500 font-extrabold">90%</span> while enjoying 24/7 uninterrupted power for your home or business.
             </motion.p>
 
-            {/* Key Features */}
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6"
-              initial={{ opacity: 0, y: 30 }}
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mb-10"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
             >
+              <Link to="/contact" className="btn-primary space-x-2 group scale-105 active:scale-95 shadow-green-500/20">
+                <span>Get Free Assessment</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a href="tel:+2349138502947" className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold bg-white/10 text-white border-2 border-white/30 hover:bg-white/20 transition-all">
+                <Phone className="mr-2 h-5 w-5" />
+                Call Now
+              </a>
+            </motion.div>
+
+            {/* Trust Bar */}
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
               {[
-                { icon: Zap, text: "24/7 Power Supply", color: 'var(--yellow-400)' },
-                { icon: Shield, text: "10-Year Warranty", color: 'var(--energy-green)' },
-                { icon: Award, text: "Certified Engineers", color: 'var(--energy-green-dark)' }
-              ].map((feature, index) => (
-                <div key={index} className="premium-card flex items-center space-x-3" style={{ backgroundColor: 'var(--white)', border: '1px solid var(--green-100)' }}>
-                  <feature.icon className="h-6 w-6" style={{ color: feature.color }} />
-                  <span className="font-semibold text-sm" style={{ color: 'var(--gray-700)' }}>{feature.text}</span>
+                { value: '500+', label: 'Installs', icon: Zap },
+                { value: '10Yr', label: 'Warranty', icon: Shield },
+                { value: '24/7', label: 'Support', icon: Award }
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-col">
+                  <div className="text-xl sm:text-2xl font-black text-green-400">{stat.value}</div>
+                  <div className="text-[10px] uppercase font-bold text-gray-300 tracking-widest">{stat.label}</div>
                 </div>
               ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 pt-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              <Link 
-                to="/contact" 
-                className="btn-primary group pulse-glow"
-              >
-                <span className="relative z-10">Get Free Assessment</span>
-                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              
-              <a
-                href="https://wa.me/2349138502947"
-                className="glass px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 inline-flex items-center justify-center hover:scale-105"
-                style={{ backgroundColor: 'var(--white)', border: '2px solid var(--green-200)', color: 'var(--energy-green)' }}
-              >
-                <MessageCircle className="mr-3 h-5 w-5" style={{ color: 'var(--energy-green)' }} />
-                WhatsApp Consultation
-              </a>
-              
-              <a
-                href="tel:+2349138502947"
-                className="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 inline-flex items-center justify-center hover:scale-105"
-                style={{ 
-                  border: '2px solid var(--energy-green)', 
-                  color: 'var(--energy-green)',
-                  backgroundColor: 'transparent'
-                }}
-              >
-                <Phone className="mr-3 h-5 w-5" />
-                Emergency Hotline
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Visual Section */}
-          <motion.div
-            className="lg:col-span-5"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <div className="relative">
-              {/* Main Image Container */}
-              <div className="premium-card relative p-8" style={{ backgroundColor: 'var(--white)', border: '1px solid var(--green-100)' }}>
-                <ImagePlaceholder
-                  src={IMAGES.hero.solarInstallation}
-                  alt={IMAGE_DESCRIPTIONS.hero.solarInstallation}
-                  fallbackText="Premium Solar Installation"
-                  className="rounded-2xl shadow-2xl"
-                />
-                
-                {/* Floating Stats Cards */}
-                <motion.div 
-                  className="absolute -top-4 -right-4 p-4 rounded-2xl shadow-xl float"
-                  style={{ backgroundColor: 'var(--energy-green)', color: 'var(--white)' }}
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">90%</div>
-                    <div className="text-xs opacity-90">Cost Reduction</div>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  className="absolute -bottom-4 -left-4 p-4 rounded-2xl shadow-xl float"
-                  style={{ backgroundColor: 'var(--white)', color: 'var(--energy-green)', border: '2px solid var(--energy-green)' }}
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">24/7</div>
-                    <div className="text-xs font-semibold">Power Supply</div>
-                  </div>
-                </motion.div>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-3xl blur-xl" style={{ background: 'var(--gradient-primary)', opacity: 0.2 }} />
-;            </div>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-1 h-12 rounded-full bg-gradient-to-b from-green-400/80 to-transparent" />
+      </motion.div>
     </section>
   );
 };

@@ -1,4 +1,4 @@
-# Image Guide for Solar Drmcxl Website
+# Image Guide for Solar Dremcxl Website
 
 This guide explains what images you need to add to make your website look professional with actual photos instead of placeholders.
 
@@ -96,7 +96,7 @@ This guide explains what images you need to add to make your website look profes
 
 1. **team.jpg** (800x800px)
 
-   - Photo of the Solar Drmcxl team
+   - Photo of the Solar Dremcxl team
    - Professional group photo
    - Should show expertise and professionalism
 
@@ -143,7 +143,7 @@ This guide explains what images you need to add to make your website look profes
 - **Professional**: All images should look professional and high-quality
 - **Relevant**: Images should directly relate to solar/inverter work
 - **Clean**: Well-lit, clear, and uncluttered
-- **Branded**: If possible, include Solar Drmcxl branding subtly
+- **Branded**: If possible, include Solar Dremcxl branding subtly
 - **Local**: Nigerian context preferred for authenticity
 
 ### Photography Tips

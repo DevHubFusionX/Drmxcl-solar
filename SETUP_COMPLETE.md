@@ -1,8 +1,8 @@
-# Solar Drmcxl Website - Setup Complete! ✅
+# Solar Dremcxl Website - Setup Complete! ✅
 
 ## What's Been Created
 
-Your complete Solar Drmcxl website is now ready with:
+Your complete Solar Dremcxl website is now ready with:
 
 ### ✅ Complete Website Structure
 
@@ -72,7 +72,7 @@ Your complete Solar Drmcxl website is now ready with:
 1. **Navigate to project**:
 
    ```bash
-   cd "c:\Users\fanya\Documents\New folder (2)\Solar Drmcxl\drmxcl"
+   cd "c:\Users\fanya\Documents\New folder (2)\Solar Dremcxl\drmxcl"
    ```
 
 2. **Start development server**:
@@ -186,6 +186,6 @@ If you need help:
 
 ## 🎉 You're Ready!
 
-Your Solar Drmcxl website is complete and ready to showcase your solar and inverter services. The professional design, smooth animations, and mobile-responsive layout will help attract and convert customers.
+Your Solar Dremcxl website is complete and ready to showcase your solar and inverter services. The professional design, smooth animations, and mobile-responsive layout will help attract and convert customers.
 
 **Next step**: Add your real images and content to make it uniquely yours!

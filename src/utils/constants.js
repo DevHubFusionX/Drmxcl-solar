@@ -2,7 +2,7 @@
 export const CONTACT_INFO = {
   phone: '+2349138502947',
   phone2: '+2347081741999',
-  email: 'Drmcxlihemeje@gmail.com',
+  email: 'Dremcxl@gmail.com',
   whatsapp: 'https://wa.me/2349138502947',
   address: 'Lagos, Nigeria'
 }

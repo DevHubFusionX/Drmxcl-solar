@@ -1,104 +1,108 @@
 import { motion } from 'framer-motion';
-import { Clock, Shield, DollarSign, Users } from 'lucide-react';
+import { Clock, Shield, DollarSign, Users, CheckCircle2 } from 'lucide-react';
+import '../../styles/theme.css';
 
 const WhyChooseUs = () => {
   const features = [
     {
       icon: Clock,
-      title: 'Rapid Response Service',
-      description: 'Emergency repairs within 24 hours and scheduled installations completed on time, every time.'
+      title: 'Rapid Response',
+      description: 'Emergency repairs within 24 hours and scheduled installations completed on time, every time.',
+      color: 'green'
     },
     {
       icon: Shield,
-      title: 'Certified Excellence',
-      description: 'Over 5 years of proven expertise with certified engineers and a 100% customer satisfaction guarantee.'
+      title: 'Reliable Warranty',
+      description: 'Over 5 years of proven expertise with certified engineers and a comprehensive 10-year coverage.',
+      color: 'blue'
     },
     {
       icon: DollarSign,
-      title: 'Transparent Pricing',
-      description: 'Upfront pricing with detailed quotes, flexible payment plans, and no surprise charges.'
+      title: 'Fair Pricing',
+      description: 'Upfront pricing with detailed quotes, flexible payment plans, and zero hidden charges.',
+      color: 'green'
     },
     {
       icon: Users,
-      title: 'Lifetime Support',
-      description: 'Comprehensive warranty coverage and ongoing technical support to maximize your investment.'
+      title: 'Expert Support',
+      description: 'Comprehensive technical support and maintenance to maximize your long-term energy investment.',
+      color: 'blue'
     }
   ];
 
   return (
-    <section className="section-padding">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center space-y-6"
-          >
-            <div className="inline-flex items-center space-x-3 rounded-full px-6 py-3 mb-4" style={{ backgroundColor: 'var(--green-100)', border: '1px solid var(--green-200)' }}>
-              <div className="flex space-x-1">
-                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green)' }}></div>
-                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green-light)', animationDelay: '0.1s' }}></div>
-                <div className="w-3 h-3 rounded-full animate-bounce" style={{ backgroundColor: 'var(--energy-green-dark)', animationDelay: '0.2s' }}></div>
-              </div>
-              <span className="font-bold tracking-wider uppercase" style={{ color: 'var(--energy-green-dark)' }}>Excellence Redefined</span>
-            </div>
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-[0.03]">
+        <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] rounded-full bg-green-500 blur-[120px]" />
+        <div className="absolute top-[60%] -right-[5%] w-[30%] h-[30%] rounded-full bg-blue-500 blur-[100px]" />
+      </div>
 
-            <h2 className="text-4xl md:text-6xl font-black leading-tight">
-              <span style={{ color: 'var(--gray-800)' }}>WHY </span>
-              <span className="text-gradient-primary">
-                SOLAR Drmcxl
-              </span>
-              <br />
-              <span className="text-gradient-accent">
-                STANDS APART
-              </span>
-            </h2>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            <div className="flex justify-center space-x-2">
-              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-primary)' }}></div>
-              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-text-accent)' }}></div>
-              <div className="w-10 h-2 rounded-full" style={{ background: 'var(--gradient-primary)' }}></div>
-            </div>
-
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed" style={{ color: 'var(--gray-600)', fontFamily: 'var(--font-primary)' }}>
-              Our <span className="font-bold" style={{ color: 'var(--energy-green)' }}>unwavering commitment to engineering excellence</span>,
-              combined with <span className="font-bold" style={{ color: 'var(--energy-green-dark)' }}>cutting-edge photovoltaic innovations</span> and
-              <span className="font-bold" style={{ color: 'var(--gray-800)' }}>bespoke energy consultancy</span>, positions us as
-              <span className="text-gradient-primary font-black">Nigeria's definitive authority</span>
-              in sustainable energy transformation.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
+          {/* Left Side: Content */}
+          <div className="max-w-xl">
             <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="space-y-8"
             >
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <feature.icon className="h-8 w-8 text-green-600" />
+              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-green-50 border border-green-100 uppercase tracking-widest text-[10px] font-black text-green-600">
+                <CheckCircle2 className="h-3 w-3" />
+                <span>The Dremcxl Standard</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600">
-                {feature.description}
+
+              <h2 className="text-4xl md:text-6xl font-black text-gray-900 leading-[1.1]">
+                WHY <span className="text-green-600">DREMCXL</span> STANDS APART
+              </h2>
+
+              <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                Our unwavering commitment to engineering excellence and
+                cutting-edge photovoltaic innovations makes us Nigeria's
+                definitive authority in sustainable energy transformation.
               </p>
+
+              <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="p-6 rounded-3xl bg-gray-50 border border-gray-100">
+                  <div className="text-3xl font-black text-gray-900 mb-1">500+</div>
+                  <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">PROJECTS DONE</div>
+                </div>
+                <div className="p-6 rounded-3xl bg-gray-50 border border-gray-100">
+                  <div className="text-3xl font-black text-green-600 mb-1">100%</div>
+                  <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">RELIABILITY</div>
+                </div>
+              </div>
             </motion.div>
-          ))}
+          </div>
+
+          {/* Right Side: Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group p-8 rounded-[40px] bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-green-500/5 transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className={`p-4 rounded-2xl w-fit mb-6 transition-colors duration-500 ${feature.color === 'green' ? 'bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white' : 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                  }`}>
+                  <feature.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-black text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

@@ -1,16 +1,16 @@
-const ImagePlaceholder = ({ 
-  src, 
-  alt, 
-  className = "", 
-  fallbackText = "Image", 
-  aspectRatio = "aspect-video" 
+const ImagePlaceholder = ({
+  src,
+  alt,
+  className = "",
+  fallbackText = "Image",
+  aspectRatio = "aspect-video"
 }) => {
   return (
-    <div className={`${aspectRatio} bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center ${className}`}>
+    <div className={`${className.includes('aspect-') ? '' : aspectRatio} bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center ${className}`}>
       {src ? (
-        <img 
-          src={src} 
-          alt={alt} 
+        <img
+          src={src}
+          alt={alt}
           className="w-full h-full object-cover rounded-lg"
           onError={(e) => {
             e.target.style.display = 'none';

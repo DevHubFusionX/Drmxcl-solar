@@ -1,7 +1,14 @@
+// Import assets
+import heroMain from '../assets/images/hero/hero-main.png';
+import hero2 from '../assets/images/hero/hero-2.png';
+import hero3 from '../assets/images/hero/hero-3.png';
+
+export const HERO_BACKGROUNDS = [heroMain, hero2, hero3];
+
 // Image paths using renamed files from public folder
 export const IMAGES = {
   hero: {
-    solarInstallation: '/solar-panels-roof.jpg',
+    solarInstallation: heroMain,
     engineerWorking: '/engineer-working.jpg',
     solarPanels: '/solar-panels-roof.jpg'
   },

@@ -20,10 +20,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Create WhatsApp message
-    const message = `Hello Solar Drmcxl,\n\nI'm interested in your services.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage: ${formData.message}\n\nPlease get back to me. Thank you!`;
-    
+    const message = `Hello Solar Dremcxl,\n\nI'm interested in your services.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\n\nMessage: ${formData.message}\n\nPlease get back to me. Thank you!`;
+
     // Open WhatsApp with prefilled message
     const whatsappUrl = `https://wa.me/2349138502947?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -45,8 +45,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'Drmcxlihemeje@gmail.com',
-      action: 'mailto:Drmcxlihemeje@gmail.com'
+      details: 'Dremcxl@gmail.com',
+      action: 'mailto:Dremcxl@gmail.com'
     },
     {
       icon: MapPin,
@@ -57,7 +57,7 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      details: 'Chat with Drmcxl instantly',
+      details: 'Chat with Dremcxl instantly',
       action: 'https://wa.me/2349138502947'
     }
   ];
@@ -251,7 +251,7 @@ const Contact = () => {
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  WhatsApp Drmcxl Now
+                  WhatsApp Dremcxl Now
                 </a>
 
                 <a
@@ -259,7 +259,7 @@ const Contact = () => {
                   className="w-full border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Drmcxl Directly
+                  Call Dremcxl Directly
                 </a>
               </div>
 

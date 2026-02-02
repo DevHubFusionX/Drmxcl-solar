@@ -1,6 +1,6 @@
-# Solar Drmcxl Website
+# Solar Dremcxl Website
 
-A modern, responsive website for Solar Drmcxl - a solar and inverter solutions company. Built with React, Vite, Tailwind CSS, Framer Motion, and Lucide React icons.
+A modern, responsive website for Solar Dremcxl - a solar and inverter solutions company. Built with React, Vite, Tailwind CSS, Framer Motion, and Lucide React icons.
 
 ## Features
 
@@ -33,7 +33,7 @@ A modern, responsive website for Solar Drmcxl - a solar and inverter solutions c
 1. Navigate to the project directory:
 
    ```bash
-   cd "c:\Users\fanya\Documents\New folder (2)\Solar Drmcxl\drmxcl"
+   cd "c:\Users\fanya\Documents\New folder (2)\Solar Dremcxl\drmxcl"
    ```
 
 2. Install dependencies:
@@ -163,4 +163,4 @@ For support or questions about this website, contact the development team.
 
 ## License
 
-This project is proprietary software for Solar Drmcxl.
+This project is proprietary software for Solar Dremcxl.
